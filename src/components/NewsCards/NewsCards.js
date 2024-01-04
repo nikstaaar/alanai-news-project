@@ -2,7 +2,7 @@ import React from 'react'
 import { Grid, Grow, Typography } from '@mui/material'
 
 import NewsCard from '../NewsCard/NewsCard.js'
-import useStyles from './styles.js'
+import './styles.css'
 
 const infoCards = [
 	{
@@ -31,23 +31,13 @@ const infoCards = [
 ]
 
 const NewsCards = ({ articles, activeArticle }) => {
-	const classes = useStyles()
-
 	if (!articles.length) {
 		return (
 			<Grow in>
-				<Grid
-					className={classes.container}
-					container
-					alignItems="stretch"
-					spacing={3}
-				>
+				<Grid className="container" container alignItems="stretch" spacing={3}>
 					{infoCards.map((infoCard) => (
-						<Grid item xs={12} sm={6} md={4} lg={3} className={classes.infoContainer}>
-							<div
-								className={classes.infoCard}
-								style={{ borderColor: infoCard.color }}
-							>
+						<Grid item xs={12} sm={6} md={4} lg={3} className="infoContainer">
+							<div className="infoCard" style={{ borderColor: infoCard.color }}>
 								<Typography style={{ color: infoCard.color }} variant="h5">
 									{infoCard.title}
 								</Typography>
@@ -71,12 +61,7 @@ const NewsCards = ({ articles, activeArticle }) => {
 
 	return (
 		<Grow in>
-			<Grid
-				className={classes.container}
-				container
-				alignItems="stretch"
-				spacing={3}
-			>
+			<Grid className="container" container alignItems="stretch" spacing={3}>
 				{articles.map((article, i) => (
 					<Grid item xs={12} sm={6} md={4} lg={3} style={{ display: 'flex' }}>
 						<NewsCard article={article} activeArticle={activeArticle} i={i} />

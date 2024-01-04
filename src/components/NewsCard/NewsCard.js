@@ -8,15 +8,13 @@ import {
 	Button,
 	Typography,
 } from '@mui/material'
-
-import useStyles from './styles'
+import './styles.css'
 
 const NewsCard = ({
 	article: { description, publishedAt, source, title, url, urlToImage },
 	activeArticle,
 	i,
 }) => {
-	const classes = useStyles()
 	const [elRefs, setElRefs] = useState([])
 	const scrollToRef = (ref) => window.scroll(0, ref.current.offsetTop - 50)
 
@@ -37,17 +35,14 @@ const NewsCard = ({
 	}, [i, activeArticle, elRefs])
 
 	return (
-		<Card
-			ref={elRefs[i]}
-			className={activeArticle === i ? classes.activeCard : classes.card}
-		>
+		<Card ref={elRefs[i]} className={activeArticle === i ? 'activeCard' : 'card'}>
 			<CardActionArea href={url} target="_blank">
 				<CardMedia
-					className={classes.media}
+					className="media"
 					image={urlToImage || '/buffer.jpg'}
 					title={title}
 				/>
-				<div className={classes.details}>
+				<div className="details">
 					<Typography variant="body2" color="textSecondary" component="h2">
 						{new Date(publishedAt).toDateString()}
 					</Typography>
@@ -55,12 +50,7 @@ const NewsCard = ({
 						{source.name}
 					</Typography>
 				</div>
-				<Typography
-					className={classes.title}
-					gutterBottom
-					variant="h5"
-					component="h2"
-				>
+				<Typography className="title" gutterBottom variant="h5" component="h2">
 					{title}
 				</Typography>
 				<CardContent>
@@ -69,7 +59,7 @@ const NewsCard = ({
 					</Typography>
 				</CardContent>
 			</CardActionArea>
-			<CardActions className={classes.cardActions}>
+			<CardActions className="cardActions">
 				<Button size="small" color="primary" href={url}>
 					Learn More
 				</Button>
