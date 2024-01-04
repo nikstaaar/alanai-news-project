@@ -26,7 +26,6 @@ Once the development server is running, open the app in your browser. You can in
 
 This project exists thanks to the Turorial by @javascriptmastery
 
-- 
 ## License
 
 This project is licensed under the [MIT License](link-to-license-file).
